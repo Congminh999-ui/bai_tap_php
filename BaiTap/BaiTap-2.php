@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>trang-2.php</title>
+    
 </head>
 <body>
     <?php
-        echo "Hello, Worlffffddđd!";
+        echo "Thầy <b>Trần Vĩnh Xuyên</b>,xin chào các bạn!";
     ?>
 </body>
 </html>
