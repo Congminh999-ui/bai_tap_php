@@ -4,26 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài cây dừa</title>
-    <link rel="stylesheet" href="../Css/BaiTap-1.css">
+    <link rel="stylesheet" href="../Css/BaiTap-4.css">
 
     <!-- CODE PHP -->
-    <?php
-        if(isset ($_POST['Dai']) && $_POST['Dai']!=null &&
-            isset ($_POST['Rong']) && $_POST['Rong']!=null)
-            // Kiểm tra 4 điều kiện cùng lúc:
-            //isset($_POST['Dai']): Có dữ liệu "Dai" được gửi lên không?
-            //$_POST['Dai']!=null: Giá trị "Dai" khác rỗng không?
-            //isset($_POST['Rong']): Có dữ liệu "Rong" được gửi lên không?
-            //$_POST['Rong']!=null: Giá trị "Rong" khác rỗng không?
-                    {
-          $dientich= $_POST['Dai'] * $_POST['Rong'];
-          //Tính diện tích = Dài × Rộng
+   <?php
+        $so_thu_1 = "";
+        $so_thu_2 = "";
+        $ket_qua  = "";
+        $thong_bao = "";
+        //Tạo biến rỗng để tránh lỗi Undefined variable và dùng hiển thị ra form.
+
+        if (isset($_POST['so_thu_1'], $_POST['so_thu_2']) &&
+            $_POST['so_thu_1'] !== "" && $_POST['so_thu_2'] !== "") //Chỉ chạy khi: Form đã submit Cả số 1 và số 2 đều có nhập
+            {
+
+            $so_thu_1 = (int) $_POST['so_thu_1'];
+            $so_thu_2 = (int) $_POST['so_thu_2'];
+            //Ép từ chuỗi → số để so sánh đúng
+
+            if ($so_thu_1 > $so_thu_2) {
+                $ket_qua = $so_thu_1;
+            } elseif ($so_thu_2 > $so_thu_1) {
+                $ket_qua = $so_thu_2;
+            } else {
+                $ket_qua = "Hai số bằng nhau";
+            }
+            //Tìm số lớn hơn, nếu bằng nhau thì báo
+
+        } else {
+            $thong_bao = "Vui lòng nhập đủ 2 số!";
+            // không nhập hoặc nhập nhiếu thì hiện thông báo này
         }
-
-        else $dientich= "Vui lòng nhập số!";
-        //nếu không nhập gì hoặc nhập giá trị rỗng, sẽ hiển thị thông báo này.
-     ?>
-
+?>
 </head>
 <body>
     <div class="khungtong">
@@ -52,7 +64,6 @@
 
         <!-- phần thân của trang -->
 <form action="#" method="post">
-    <!-- qua bài hai có giải thích -->
 
         <div class="bang">
                 <table class="table1">
@@ -64,18 +75,18 @@
                     </tr>
 
                     <tr class="box-item">
-                        <td>Chiều dài</td>
+                        <td>Số thứ 1</td>
                         <td class="box-enter">
-                            <input type="text" name="Dai"> 
+                            <input type="text" name="so_thu_1"> 
                         </td>
                     </tr>
 
                     <tr class="box-item">
-                        <td>Chiều rộng</td>
+                        <td>Số thứ 2</td>
                         <td class="box-enter">
-                            <input type="text" name="Rong">
+                            <input type="text" name="so_thu_2">
                             <button type="submit">                    
-                                Thực hiện
+                                tìm số lớn hơn
                             </button>
                         </td>
                     </tr>
@@ -87,10 +98,10 @@
                     </tr>
 
                     <tr class="box-item">
-                        <td>Diện tích hình chữ nhật</td>
+                        <td>Số lớn hơn</td>
                         <td class="box-enter">
-                            <input type="text" name="Dientich" disabled 
-                                value="<?php echo $dientich; ?>">
+                            <input type="text" name="so_lon_hon" disabled 
+                                value="<?php echo $ket_qua !="" ? $ket_qua : $thong_bao; ?>">
                         </td>
                     </tr>
                 </table>

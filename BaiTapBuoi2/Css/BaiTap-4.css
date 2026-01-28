@@ -5,7 +5,7 @@
 }
 
 button {
-    width: 80px;
+    width: 105px;
 }
 
 tr.box-item {
@@ -19,7 +19,9 @@ th.title {
     background: #0896af;
 }
 
-td.box-enter {padding-right: 130px;}
+tr.box-item {}
+
+td.box-enter {padding-right: 100px;}
 
 table.table1 {
     width: 650px;

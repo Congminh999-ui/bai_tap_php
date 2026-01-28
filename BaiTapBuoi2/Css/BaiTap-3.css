@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+input[type="text"] {
+    width: 215px;
+}
+
 button {
     width: 80px;
 }
@@ -19,7 +23,7 @@ th.title {
     background: #0896af;
 }
 
-td.box-enter {padding-right: 130px;}
+td.box-enter {padding-right: 38px;}
 
 table.table1 {
     width: 650px;

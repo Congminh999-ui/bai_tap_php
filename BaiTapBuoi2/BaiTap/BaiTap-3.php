@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài cây dừa</title>
-    <link rel="stylesheet" href="../Css/BaiTap-1.css">
+    <link rel="stylesheet" href="../Css/BaiTap-3.css">
 
     <!-- CODE PHP -->
     <?php
-        if(isset ($_POST['Dai']) && $_POST['Dai']!=null &&
-            isset ($_POST['Rong']) && $_POST['Rong']!=null)
-            // Kiểm tra 4 điều kiện cùng lúc:
-            //isset($_POST['Dai']): Có dữ liệu "Dai" được gửi lên không?
-            //$_POST['Dai']!=null: Giá trị "Dai" khác rỗng không?
-            //isset($_POST['Rong']): Có dữ liệu "Rong" được gửi lên không?
-            //$_POST['Rong']!=null: Giá trị "Rong" khác rỗng không?
-                    {
-          $dientich= $_POST['Dai'] * $_POST['Rong'];
-          //Tính diện tích = Dài × Rộng
-        }
+        $thanh_tien = "";
+        $thong_bao = "";
+        // $thanh_tien → lưu kết quả
+        // $thong_bao → lưu lỗi / nhắc nhở
 
-        else $dientich= "Vui lòng nhập số!";
-        //nếu không nhập gì hoặc nhập giá trị rỗng, sẽ hiển thị thông báo này.
-     ?>
+        if (
+            isset($_POST['chi_so_cu'], $_POST['chi_so_moi'], $_POST['don_gia']) &&
+            $_POST['chi_so_cu'] !== null &&
+            $_POST['chi_so_moi'] !== null &&
+            $_POST['don_gia'] !== null
+            // bài 2 có giải thích chi tiết ok
+        ) {
+            $cu  = $_POST['chi_so_cu'];
+            $moi = $_POST['chi_so_moi'];
+            $gia = $_POST['don_gia'];
+            //Gán giá trị nhập vào biến để xử lý
+
+            if ($moi > $cu) //Chỉ số mới phải lớn hơn chỉ số cũ
+             {
+                $so_dien = $moi - $cu;
+                $thanh_tien = $so_dien * $gia;
+                //Số điện × đơn giá = thành tiền
+            } 
+            else {
+                $thong_bao = "Chỉ số mới phải lớn hơn chỉ số cũ!";
+            }
+        } 
+        else 
+        {
+            $thong_bao = "Vui lòng nhập đầy đủ thông tin!";
+        }
+?>
+
 
 </head>
 <body>
@@ -52,30 +70,44 @@
 
         <!-- phần thân của trang -->
 <form action="#" method="post">
-    <!-- qua bài hai có giải thích -->
 
         <div class="bang">
                 <table class="table1">
                     
                     <tr>
                         <th class="title" colspan="2">
-                            TÍNH DIỆN TÍCH HÌNH CHỮ NHẬT
+                            TÍNH TIỀN ĐIỆN DÙNG TRONG 1 THÁNG QUA Ó Ó Ó
                         </th>
                     </tr>
 
                     <tr class="box-item">
-                        <td>Chiều dài</td>
+                        <td>Khách hàng</td>
                         <td class="box-enter">
-                            <input type="text" name="Dai"> 
+                            <input type="text" value="Mỹ Ngọc" disabled> 
+                            <!-- có thể đổi tên khác nha value = "Tên khác" -->
                         </td>
                     </tr>
 
                     <tr class="box-item">
-                        <td>Chiều rộng</td>
+                        <td>Chỉ số cũ</td>
                         <td class="box-enter">
-                            <input type="text" name="Rong">
+                            <input type="text" name="chi_so_cu"> 
+                        </td>
+                    </tr>
+
+                    <tr class="box-item">
+                        <td>Chỉ số mới</td>
+                        <td class="box-enter">
+                            <input type="text" name="chi_so_moi"> 
+                        </td>
+                    </tr>
+
+                    <tr class="box-item">
+                        <td>Đơn giá</td>
+                        <td class="box-enter">
+                            <input type="text" name="don_gia">
                             <button type="submit">                    
-                                Thực hiện
+                                Thành tiền
                             </button>
                         </td>
                     </tr>
@@ -87,10 +119,10 @@
                     </tr>
 
                     <tr class="box-item">
-                        <td>Diện tích hình chữ nhật</td>
+                        <td>Thành tiền</td>
                         <td class="box-enter">
                             <input type="text" name="Dientich" disabled 
-                                value="<?php echo $dientich; ?>">
+                                value="<?php echo $thanh_tien != "" ? $thanh_tien : $thong_bao; ?>">
                         </td>
                     </tr>
                 </table>
