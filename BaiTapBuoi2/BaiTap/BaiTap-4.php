@@ -70,7 +70,7 @@
                     
                     <tr>
                         <th class="title" colspan="2">
-                            TÍNH DIỆN TÍCH HÌNH CHỮ NHẬT
+                            SỐ LƠN HƠN
                         </th>
                     </tr>
 
