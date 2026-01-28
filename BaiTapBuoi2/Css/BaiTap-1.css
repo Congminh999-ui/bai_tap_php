@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    width: 80px;
+}
+
+tr.box-item {
+    height: 40px;
+}
+
+th.title {
+    height: 45px;
+    font-size: 17px;
+    color: white;
+    background: #0896af;
+}
+
+tr.box-item {}
+
+td.box-enter {padding-right: 130px;}
+
+table.table1 {
+    width: 650px;
+}
+
+.bang {
+    width: 652px;
+    margin: auto;
+    border: 1px solid;
+    margin-top: 70px;
+}
+
+p.noidung1 {
+    color: #ffffff85;
+}
+
+.khungMenu {
+    width: auto;
+    height: 25px;
+    padding-top: 5px;
+    padding-left: 10px;
+    background-color: #0080008a;
+}
+
+li._1Menu {
+    border-right: 1px solid;
+    line-height: 13px;
+    padding: 0px 7px;
+    font-size: 16px;
+    color: blue;
+}
+
+li._1Menu:last-child {
+    border-right: none;
+}
+
+ul.Menu {
+    width: 449px;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+b.indam {
+    font-size: 16px;
+}
+
+.kettrang {
+    text-align: center;
+    margin-top: 56px;
+    width: 998px;
+    height: 95px;
+    background-color: #3167CB;
+    color: white;
+    padding-top: 15px;
+}
+
+p.Thongtin {
+    margin-left: 195px;
+    font-size: 21px;
+}
+
+p.noidung {
+    font-size: 32px;
+}
+
+.khungchu {margin-left: 334px;margin-top: -107px;height: 72px;width: 659px;color: #2CF9D9;}
+
+.khungtong {width: 1000px;height: 600px;border: 1px solid;margin: auto;}
+
+img {
+    width: 317px;
+    height: 127px;
+}
+
+.khunganh {
+    width: 998px;
+    height: 128px;
+    background-color: #246BBE;
+}
+
+.img{
+    width: 1367px;
+    height: 400px;
+}

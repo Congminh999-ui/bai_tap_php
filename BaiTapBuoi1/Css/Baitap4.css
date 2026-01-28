@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+b.indam {
+    font-size: 16px;
+}
+
+.kettrang {
+    text-align: center;
+    margin-top: 235px;
+    width: 998px;
+    height: 95px;
+    background-color: #3167CB;
+    color: white;
+    padding-top: 15px;
+}
+
+p.Thongtin {
+    margin-left: 195px;
+    font-size: 21px;
+}
+
+p.noidung {
+    font-size: 32px;
+}
+
+.khungchu {margin-left: 334px;margin-top: -107px;height: 72px;width: 659px;color: #2CF9D9;}
+
+.khungtong {width: 1000px;height: 500px;border: 1px solid;margin: auto;}
+
+img {
+    width: 317px;
+    height: 127px;
+}
+
+.khunganh {
+    width: 998px;
+    height: 128px;
+    background-color: #246BBE;
+}
+
+.img{
+    width: 1367px;
+    height: 400px;
+}
+
