@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+.input-wrap {
+    position: relative;
+}
+
+span.loi {
+    position: relative;
+    left: -215px;
+    color: red;
+}
+
+
 input[type="text"] {
     width: 215px;
 }
@@ -92,7 +103,7 @@ p.noidung {
 
 .khungchu {margin-left: 334px;margin-top: -107px;height: 72px;width: 659px;color: #2CF9D9;}
 
-.khungtong {width: 1000px;height: 600px;border: 1px solid;margin: auto;}
+.khungtong {width: 1000px;height: 600px;margin: auto;}
 
 img {
     width: 317px;

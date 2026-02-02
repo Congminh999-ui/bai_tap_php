@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài cây dừa</title>
-    <link rel="stylesheet" href="../Css/BaiTap-1.css">
+    <link rel="stylesheet" href="../Css/BaiTap-3.css">
 
     <!-- CODE PHP -->
-    <?php
-        if(isset ($_POST['Dai']) && $_POST['Dai']!=null &&
-            isset ($_POST['Rong']) && $_POST['Rong']!=null)
-            // Kiểm tra 4 điều kiện cùng lúc:
-            //isset($_POST['Dai']): Có dữ liệu "Dai" được gửi lên không?
-            //$_POST['Dai']!=null: Giá trị "Dai" khác rỗng không?
-            //isset($_POST['Rong']): Có dữ liệu "Rong" được gửi lên không?
-            //$_POST['Rong']!=null: Giá trị "Rong" khác rỗng không?
-                    {
-          $dientich= $_POST['Dai'] * $_POST['Rong'];
-          //Tính diện tích = Dài × Rộng
-        }
+<?php
+        $dientich = "";
+        $thongbao = "";
 
-        else $dientich= "Vui lòng nhập số!";
-        //nếu không nhập gì hoặc nhập giá trị rỗng, sẽ hiển thị thông báo này.
-     ?>
+        if (
+            isset($_POST['Dai'], $_POST['Rong']) &&
+            $_POST['Dai'] !== "" &&
+            $_POST['Rong'] !== ""
+        ) {
+            if (is_numeric($_POST['Dai']) && is_numeric($_POST['Rong'])) {
+                $dai  = $_POST['Dai'];
+                $rong = $_POST['Rong'];
+                $dientich = $dai * $rong;
+            } else {
+                $thongbao = "Lỗi vui lòng nhập số";
+            }
+        } else {
+            $dientich = "Vui lòng nhập đủ dữ liệu!";
+        }
+?>
 
 </head>
 <body>
@@ -88,9 +92,17 @@
 
                     <tr class="box-item">
                         <td>Diện tích hình chữ nhật</td>
-                        <td class="box-enter">
+                        <td class="box-enter_1">
                             <input type="text" name="Dientich" disabled 
                                 value="<?php echo $dientich; ?>">
+
+                            <p style="color:red;
+                            font-weight:bold; 
+                            margin-top: -16px;
+                            font-size: 14px;
+                            margin-left: 10px;">
+                                <?php echo $thongbao; ?>
+                            </p>
                         </td>
                     </tr>
                 </table>

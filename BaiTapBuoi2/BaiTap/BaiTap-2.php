@@ -8,29 +8,22 @@
 
     <!-- CODE PHP -->
     <?php
-    $chu_vi_hinh_tron = ""; 
-    $dien_tich_hinh_tron = ""; 
-    $Thong_bao = ""; 
-    //Tạo 3 biến và gán giá trị rỗng để lưu chu vi, diện tích và thông báo lỗi
+$chu_vi_hinh_tron = ""; 
+$dien_tich_hinh_tron = ""; 
+$Thong_bao = ""; 
 
-        if(isset ($_POST['BanKinh']) && $_POST['BanKinh']!=null)
-            //Điều kiện này kiểm tra 2 việc:
-            //isset($_POST['BanKinh']): Kiểm tra xem có dữ liệu được gửi lên từ form với tên "BanKinh" không
-            //$_POST['BanKinh']!=null: Kiểm tra giá trị đó có khác null (không rỗng) không
-        {
-            $r = $_POST['BanKinh'];
-          $chu_vi_hinh_tron = 2 * 3.14 * $r;
-          $dien_tich_hinh_tron = 3.14 * $r * $r;
-
-        //Nếu điều kiện đúng:
-        //Lấy giá trị bán kính từ form gán vào biến $r
-        //Tính chu vi hình tròn: C = 2πr (với π ≈ 3.14)
-        //Tính diện tích hình tròn: S = πr² (với π ≈ 3.14)
-        }
-
-        else $Thong_bao= "Nhập số đi bạn già!";
-        //Nếu không nhập gì hoặc nhập giá trị rỗng, sẽ hiển thị thông báo này.
-     ?>
+if (isset($_POST['BanKinh']) && $_POST['BanKinh'] !== "") {
+    if (is_numeric($_POST['BanKinh'])) {
+        $r = $_POST['BanKinh'];
+        $chu_vi_hinh_tron = 2 * 3.14 * $r;
+        $dien_tich_hinh_tron = 3.14 * $r * $r;
+    } else {
+        $Thong_bao = "Lỗi vui lòng nhập số";
+    }
+} else {
+    $Thong_bao = "Vui lòng nhập bán kính!";
+}
+?>
 
 </head>
 <body>

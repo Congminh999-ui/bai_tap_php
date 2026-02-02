@@ -8,38 +8,39 @@
 
     <!-- CODE PHP -->
     <?php
-        $thanh_tien = "";
-        $thong_bao = "";
-        // $thanh_tien → lưu kết quả
-        // $thong_bao → lưu lỗi / nhắc nhở
+$thanh_tien = "";
+$thong_bao = "";
+$thong_bao_loi = "";
 
-        if (
-            isset($_POST['chi_so_cu'], $_POST['chi_so_moi'], $_POST['don_gia']) &&
-            $_POST['chi_so_cu'] !== null &&
-            $_POST['chi_so_moi'] !== null &&
-            $_POST['don_gia'] !== null
-            // bài 2 có giải thích chi tiết ok
-        ) {
-            $cu  = $_POST['chi_so_cu'];
-            $moi = $_POST['chi_so_moi'];
-            $gia = $_POST['don_gia'];
-            //Gán giá trị nhập vào biến để xử lý
+if (
+    isset($_POST['chi_so_cu'], $_POST['chi_so_moi'], $_POST['don_gia']) &&
+    $_POST['chi_so_cu'] !== "" &&
+    $_POST['chi_so_moi'] !== "" &&
+    $_POST['don_gia'] !== ""
+) {
+    if (
+        is_numeric($_POST['chi_so_cu']) &&
+        is_numeric($_POST['chi_so_moi']) &&
+        is_numeric($_POST['don_gia'])
+    ) {
+        $cu  = $_POST['chi_so_cu'];
+        $moi = $_POST['chi_so_moi'];
+        $gia = $_POST['don_gia'];
 
-            if ($moi > $cu) //Chỉ số mới phải lớn hơn chỉ số cũ
-             {
-                $so_dien = $moi - $cu;
-                $thanh_tien = $so_dien * $gia;
-                //Số điện × đơn giá = thành tiền
-            } 
-            else {
-                $thong_bao = "Chỉ số mới phải lớn hơn chỉ số cũ!";
-            }
-        } 
-        else 
-        {
-            $thong_bao = "Vui lòng nhập đầy đủ thông tin!";
+        if ($moi > $cu) {
+            $so_dien = $moi - $cu;
+            $thanh_tien = $so_dien * $gia;
+        } else {
+            $thong_bao = "Chỉ số mới phải lớn hơn chỉ số cũ!";
         }
+    } else {
+        $thong_bao_loi = "Lỗi vui lòng nhập số";
+    }
+} else {
+    $thong_bao = "Vui lòng nhập đầy đủ thông tin!";
+}
 ?>
+
 
 
 </head>
@@ -120,9 +121,15 @@
 
                     <tr class="box-item">
                         <td>Thành tiền</td>
-                        <td class="box-enter">
-                            <input type="text" name="Dientich" disabled 
-                                value="<?php echo $thanh_tien != "" ? $thanh_tien : $thong_bao; ?>">
+                        <td class="box-enter_1">
+                            <div class="input-wrap">
+                                <input type="text" disabled
+                                    value="<?php echo $thanh_tien != '' ? $thanh_tien : $thong_bao; ?>">
+
+                                <span class="loi">
+                                    <?php echo $thong_bao_loi; ?>
+                                </span>
+                            </div>
                         </td>
                     </tr>
                 </table>

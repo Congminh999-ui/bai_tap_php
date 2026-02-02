@@ -8,34 +8,37 @@
 
     <!-- CODE PHP -->
    <?php
-        $so_thu_1 = "";
-        $so_thu_2 = "";
-        $ket_qua  = "";
-        $thong_bao = "";
-        //Tạo biến rỗng để tránh lỗi Undefined variable và dùng hiển thị ra form.
+$so_thu_1 = "";
+$so_thu_2 = "";
+$ket_qua  = "";
+$thong_bao = "";
 
-        if (isset($_POST['so_thu_1'], $_POST['so_thu_2']) &&
-            $_POST['so_thu_1'] !== "" && $_POST['so_thu_2'] !== "") //Chỉ chạy khi: Form đã submit Cả số 1 và số 2 đều có nhập
-            {
+if (
+    isset($_POST['so_thu_1'], $_POST['so_thu_2']) &&
+    $_POST['so_thu_1'] !== "" &&
+    $_POST['so_thu_2'] !== ""
+) {
+    if (is_numeric($_POST['so_thu_1']) && is_numeric($_POST['so_thu_2'])) {
 
-            $so_thu_1 = (int) $_POST['so_thu_1'];
-            $so_thu_2 = (int) $_POST['so_thu_2'];
-            //Ép từ chuỗi → số để so sánh đúng
+        $so_thu_1 = (int) $_POST['so_thu_1'];
+        $so_thu_2 = (int) $_POST['so_thu_2'];
 
-            if ($so_thu_1 > $so_thu_2) {
-                $ket_qua = $so_thu_1;
-            } elseif ($so_thu_2 > $so_thu_1) {
-                $ket_qua = $so_thu_2;
-            } else {
-                $ket_qua = "Hai số bằng nhau";
-            }
-            //Tìm số lớn hơn, nếu bằng nhau thì báo
-
+        if ($so_thu_1 > $so_thu_2) {
+            $ket_qua = $so_thu_1;
+        } elseif ($so_thu_2 > $so_thu_1) {
+            $ket_qua = $so_thu_2;
         } else {
-            $thong_bao = "Vui lòng nhập đủ 2 số!";
-            // không nhập hoặc nhập nhiếu thì hiện thông báo này
+            $ket_qua = "Hai số bằng nhau";
         }
+
+    } else {
+        $thong_bao = "Lỗi vui lòng nhập số";
+    }
+} else {
+    $thong_bao = "Vui lòng nhập đủ 2 số!";
+}
 ?>
+
 </head>
 <body>
     <div class="khungtong">
