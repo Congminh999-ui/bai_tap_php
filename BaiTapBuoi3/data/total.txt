@@ -1,0 +1,38 @@
+TÓM TẮT CÁC HÀM QUAN TRỌNG
+Hàm Chức năng Ví dụ 
+file_exists()Kiểm tra file có tồn tạifile_exists('data.txt')
+
+fopen($file, $mode)Mở filefopen('data.txt', 'r')
+
+fread($fp, $size)Đọc filefread($fp, 100)
+
+fwrite($fp, $data)Ghi filefwrite($fp, "Hello")
+
+fclose($fp)Đóng filefclose($fp)
+
+filesize($file)Kích thước filefilesize('data.txt')
+
+(int)Ép kiểu sang số(int)"123" = 123
+
+number_format()Định dạng số number_format(1234) = "1,234"
+
+---
+
+## LUỒNG HOẠT ĐỘNG TỔNG QUAN
+```
+1. User vào trang web upload.php
+   ↓
+2. PHP chạy dòng: require_once 'soluongnguoi.php'
+   ↓
+3. PHP nhảy sang file soluongnguoi.php:
+   - Mở file online.txt
+   - Đọc số cũ: 123
+   - Tăng lên: 124
+   - Ghi lại vào file: 124
+   - Tạo biến $counter = 124
+   ↓
+4. PHP quay lại upload.php
+   ↓
+5. Hiển thị: "Lượt truy cập: 124"
+   ↓
+6. User thấy trang web + số lượt truy cập
